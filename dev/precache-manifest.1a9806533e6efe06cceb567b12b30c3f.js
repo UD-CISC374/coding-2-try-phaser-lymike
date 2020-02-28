@@ -28,15 +28,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-lymike/devassets/images/player.png"
   },
   {
-    "revision": "694ed6a459dac8513fe2",
-    "url": "/coding-2-try-phaser-lymike/devgen.main.3b1e239d35cb46f4ac00.bundle.js"
+    "revision": "87f233eb84f5d9a12362",
+    "url": "/coding-2-try-phaser-lymike/devgen.main.f73f6d4900d73e0fa058.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-lymike/devgen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "ce9e109331108d3932f7678f9304e65e",
+    "revision": "f72b65c1725492d498a58132973d291b",
     "url": "/coding-2-try-phaser-lymike/devindex.html"
   },
   {
