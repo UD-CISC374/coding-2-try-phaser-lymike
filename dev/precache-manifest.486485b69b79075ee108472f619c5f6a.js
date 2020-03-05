@@ -24,19 +24,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/coding-2-try-phaser-lymike/devassets/images/ground.png"
   },
   {
+    "revision": "c79012b06900f1596a741e7f36146078",
+    "url": "/coding-2-try-phaser-lymike/devassets/images/play_button.png"
+  },
+  {
     "revision": "20d454d3d94da42b06ac3122b7926f2f",
     "url": "/coding-2-try-phaser-lymike/devassets/images/player.png"
   },
   {
-    "revision": "87f233eb84f5d9a12362",
-    "url": "/coding-2-try-phaser-lymike/devgen.main.f73f6d4900d73e0fa058.bundle.js"
+    "revision": "ad78084ebc0ba3a68b0a",
+    "url": "/coding-2-try-phaser-lymike/devgen.main.d69612e6164cf060ec1c.bundle.js"
   },
   {
     "revision": "201b65bee9df6270f739",
     "url": "/coding-2-try-phaser-lymike/devgen.vendors.a047ee0740c7d21714d9.bundle.js"
   },
   {
-    "revision": "f72b65c1725492d498a58132973d291b",
+    "revision": "5f21d6e8c593977b0848843df67746a1",
     "url": "/coding-2-try-phaser-lymike/devindex.html"
   },
   {
