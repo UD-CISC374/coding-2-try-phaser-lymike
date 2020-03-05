@@ -1,4 +1,6 @@
 import ExampleObject from '../objects/exampleObject';
+import PreloadScene from './preloadScene';
+import Score from '../score';
 
 export default class MainScene extends Phaser.Scene {
   private exampleObject: ExampleObject;
@@ -11,6 +13,7 @@ export default class MainScene extends Phaser.Scene {
   cursorKeys: Phaser.Types.Input.Keyboard.CursorKeys;
   scoreText: Phaser.GameObjects.Text;
   gameOverText: Phaser.GameObjects.Text;
+  highScoreText: Phaser.GameObjects.Text;
   score: number;
   gameOver: boolean;
 
@@ -34,6 +37,12 @@ export default class MainScene extends Phaser.Scene {
       font: "25px Arial",
       fill: "Red"
     });
+
+    this.highScoreText = this.add.text(600, 40, "HIGH SCORE: " + Score.bestScore, {
+      font: "25px Arial",
+      fill: "Red"
+    });
+
     this.gameOverText = this.add.text(640, 360, "GAME OVER", {
       font: "40px Arial",
       fill: "Black"
@@ -78,23 +87,23 @@ export default class MainScene extends Phaser.Scene {
     this.physics.add.collider(this.enemy2, ground);
     this.physics.add.collider(this.enemy3, ground);
     
-    this.physics.add.collider(this.player, this.enemy1, this.hitEnemy);
-    this.physics.add.collider(this.player, this.enemy2, this.hitEnemy);
-    this.physics.add.collider(this.player, this.enemy3, this.hitEnemy);
-
     this.cursorKeys = this.input.keyboard.createCursorKeys();
 
+    this.physics.add.collider(this.player, this.enemy1, this.hitEnemy, undefined, this);
+    this.physics.add.collider(this.player, this.enemy2, this.hitEnemy, undefined, this);
+    this.physics.add.collider(this.player, this.enemy3, this.hitEnemy, undefined, this);
   }
 
   hitEnemy(player, enemy) {
-    this.gameOverText.visible = true;
-    this.physics.pause();
-    this.gameOver = true;
+    if (this.score > Score.bestScore) {
+      Score.bestScore = this.score;
+    }
+    this.scene.restart();
   }
 
   moveEnemy(enemy, speed) {
     enemy.x += speed;
-    if (enemy.x < 0 && Math.random() > 0.5) {
+    if (enemy.x < 0) {
       this.resetEnemyPos(enemy);
     }
   }
@@ -110,15 +119,19 @@ export default class MainScene extends Phaser.Scene {
   }
 
   update() {
+    
     this.moveEnemy(this.enemy1, -5);
     this.moveEnemy(this.enemy2, -7);
     this.moveEnemy(this.enemy3, -3);
+    
     this.updateScore(this.scoreText, 1);
+    
     this.background.tilePositionX -= 1;
 
     if (this.cursorKeys.space?.isDown) { //Jump if space is pressed
       this.player.y -= 10;
     }
+    
 
   }
 }
